@@ -1,0 +1,47 @@
+---
+const navLinks = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/work-with-john", label: "Work with John" },
+  { href: "/work-with-wendy", label: "Work with Wendy" },
+  { href: "/booking", label: "Book a Consultation" },
+  { href: "/contact", label: "Contact" },
+];
+const currentPath = Astro.url.pathname;
+---
+
+<header>
+  <div class="container nav">
+    <a href="/" class="brand-logo" aria-label="Thera Sanctum home">
+      <img src="/branding/logo-header.png" alt="Thera Sanctum" height="48" />
+    </a>
+    <nav aria-label="Main navigation">
+      {navLinks.map(link => (
+        <a href={link.href} class:list={[{ active: currentPath === link.href || (link.href !== "/" && currentPath.startsWith(link.href)) }]}>
+          {link.label}
+        </a>
+      ))}
+    </nav>
+  </div>
+</header>
+
+<style>
+  header {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(247,245,242,0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(228,223,216,0.75);
+  }
+  .nav {
+    display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 14px 0;
+  }
+  .brand-logo { display: flex; align-items: center; }
+  .brand-logo img { height: 48px; width: auto; }
+  nav { display: flex; flex-wrap: wrap; gap: 22px; font-size: 0.97rem; color: var(--muted); }
+  nav a:hover, nav a.active { color: var(--text); }
+  nav a.active { font-weight: 500; }
+  @media (max-width: 640px) {
+    .nav { align-items: flex-start; flex-direction: column; }
+    nav { gap: 14px; }
+  }
+</style>

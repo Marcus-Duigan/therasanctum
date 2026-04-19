@@ -1,0 +1,161 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+<Layout title="Book a Consultation" description="Book a consultation with Wendy Ting or John Tang at Thera Sanctum — integrative oncology support and autoimmune & chronic condition care in Singapore.">
+  <Nav />
+
+  <main>
+    <!-- Page hero -->
+    <section style="padding: 72px 0 48px;">
+      <div class="container">
+        <div class="eyebrow">Appointments</div>
+        <h1 style="font-size: clamp(2.2rem, 5vw, 4rem); max-width: 760px;">Book a consultation</h1>
+        <p style="max-width: 620px; font-size: 1.08rem;">
+          All appointments are booked in advance. Select the practitioner that best fits your needs below, choose a time that works for you, and you'll receive a confirmation directly.
+        </p>
+        <div class="how-it-works">
+          <div class="step"><span class="step-num">1</span><p>Choose your practitioner below</p></div>
+          <div class="step"><span class="step-num">2</span><p>Select a date and time from the calendar</p></div>
+          <div class="step"><span class="step-num">3</span><p>Enter your details — confirmation sent automatically</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Booking: Wendy -->
+    <section class="booking-section section-alt" id="wendy">
+      <div class="container">
+        <div class="practitioner-intro">
+          <div>
+            <div class="eyebrow">Integrative Oncology Support</div>
+            <h2>Book with Wendy Ting</h2>
+            <p>Wendy supports people navigating cancer through a calm, comprehensive, integrative approach—nutrition, herbal medicine, mind-body care, and personalised action plans.</p>
+            <p><strong>Initial consultation:</strong> 75 minutes &nbsp;|&nbsp; <strong>Follow-up:</strong> 45 minutes</p>
+          </div>
+        </div>
+
+        <!-- Replace the src with Wendy's Google Calendar Appointment Schedule URL -->
+        <div class="booking-placeholder" id="wendy-calendar">
+          <div class="cal-icon">📅</div>
+          <h3>Calendar loading…</h3>
+          <p>
+            Wendy's booking calendar will appear here once her Google Calendar Appointment Schedule is set up.<br />
+            In the meantime, please <a href="/contact">get in touch</a> or email
+            <a href="mailto:hello@therasanctum.com?subject=Consultation%20with%20Wendy">hello@therasanctum.com</a> to book.
+          </p>
+          <a class="btn primary" href="mailto:hello@therasanctum.com?subject=Consultation%20with%20Wendy">Email Wendy to book</a>
+        </div>
+
+        <!--
+          TO ACTIVATE THE CALENDAR:
+          1. Wendy opens Google Calendar → Create → "Appointment schedule"
+          2. Copy the generated booking page URL
+          3. Uncomment the <iframe> below and replace WENDY_SCHEDULE_ID with the schedule ID from that URL
+          4. Remove the booking-placeholder div above
+
+        <iframe
+          src="https://calendar.google.com/calendar/appointments/schedules/WENDY_SCHEDULE_ID?gv=true"
+          class="booking-iframe"
+          frameborder="0"
+          title="Book an appointment with Wendy Ting">
+        </iframe>
+        -->
+      </div>
+    </section>
+
+    <!-- Booking: John -->
+    <section class="booking-section" id="john">
+      <div class="container">
+        <div class="practitioner-intro">
+          <div>
+            <div class="eyebrow">Autoimmune &amp; Chronic Conditions</div>
+            <h2>Book with John Tang</h2>
+            <p>John works with people navigating autoimmune conditions, chronic inflammation, and complex long-standing health concerns—taking a structured, root-cause approach to bring clarity and direction.</p>
+            <p><strong>Initial consultation:</strong> 75 minutes &nbsp;|&nbsp; <strong>Follow-up:</strong> 45 minutes</p>
+          </div>
+        </div>
+
+        <!-- Replace the src with John's Google Calendar Appointment Schedule URL -->
+        <div class="booking-placeholder" id="john-calendar">
+          <div class="cal-icon">📅</div>
+          <h3>Calendar loading…</h3>
+          <p>
+            John's booking calendar will appear here once his Google Calendar Appointment Schedule is set up.<br />
+            In the meantime, please <a href="/contact">get in touch</a> or email
+            <a href="mailto:hello@therasanctum.com?subject=Consultation%20with%20John">hello@therasanctum.com</a> to book.
+          </p>
+          <a class="btn primary" href="mailto:hello@therasanctum.com?subject=Consultation%20with%20John">Email John to book</a>
+        </div>
+
+        <!--
+          TO ACTIVATE THE CALENDAR:
+          1. John opens Google Calendar → Create → "Appointment schedule"
+          2. Copy the generated booking page URL
+          3. Uncomment the <iframe> below and replace JOHN_SCHEDULE_ID with the schedule ID from that URL
+          4. Remove the booking-placeholder div above
+
+        <iframe
+          src="https://calendar.google.com/calendar/appointments/schedules/JOHN_SCHEDULE_ID?gv=true"
+          class="booking-iframe"
+          frameborder="0"
+          title="Book an appointment with John Tang">
+        </iframe>
+        -->
+      </div>
+    </section>
+
+    <!-- FAQ / Info -->
+    <section class="section-taupe">
+      <div class="container">
+        <div class="section-head">
+          <h2>Before your appointment</h2>
+        </div>
+        <div class="faq-grid">
+          <div class="story-block">
+            <h3>Appointments are by advance booking only</h3>
+            <p>We don't accept walk-ins. Please book via the calendar above or reach out by email. We'll confirm your appointment within one business day.</p>
+          </div>
+          <div class="story-block">
+            <h3>What to expect</h3>
+            <p>Your initial consultation is 75 minutes. We'll go through your full health history, current concerns, and goals. You'll leave with a clear summary and initial plan.</p>
+          </div>
+          <div class="story-block">
+            <h3>Cancellation policy</h3>
+            <p>Please give at least 48 hours' notice if you need to reschedule. Late cancellations may be subject to a fee.</p>
+          </div>
+          <div class="story-block">
+            <h3>Still unsure?</h3>
+            <p>Not sure which practitioner is right for you? <a href="/contact">Send us a message</a> and we'll help you decide.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .how-it-works {
+    display: flex; flex-wrap: wrap; gap: 22px; margin-top: 36px;
+  }
+  .step {
+    display: flex; align-items: flex-start; gap: 14px; flex: 1; min-width: 180px;
+  }
+  .step-num {
+    display: grid; place-items: center; min-width: 36px; height: 36px;
+    background: var(--sage-deep); color: white; border-radius: 50%;
+    font-weight: 600; font-size: 0.9rem; flex-shrink: 0;
+  }
+  .step p { margin: 0; color: var(--text); font-size: 0.97rem; padding-top: 6px; }
+  .practitioner-intro { margin-bottom: 28px; }
+  .practitioner-intro p { max-width: 680px; }
+  .cal-icon { font-size: 2.4rem; margin-bottom: 12px; }
+  .faq-grid {
+    display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 20px;
+  }
+  @media (max-width: 640px) {
+    .faq-grid { grid-template-columns: 1fr; }
+  }
+</style>

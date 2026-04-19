@@ -1,0 +1,135 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+<Layout title="Contact" description="Get in touch with Thera Sanctum — book with Wendy or John, or send a general enquiry.">
+  <Nav />
+
+  <main>
+    <!-- Page hero -->
+    <section style="padding: 72px 0 56px;">
+      <div class="container">
+        <div class="eyebrow">Get in touch</div>
+        <h1 style="font-size: clamp(2.2rem, 5vw, 4rem); max-width: 700px;">We're here to help you find the right next step</h1>
+        <p style="max-width: 620px; font-size: 1.08rem;">
+          If you're unsure where to start, feel free to reach out. We can help guide you to the most appropriate care for your situation.
+        </p>
+      </div>
+    </section>
+
+    <!-- Contact cards -->
+    <section class="section-alt" style="padding-top: 0;">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="card">
+            <h3>Book with Wendy</h3>
+            <p>Integrative oncology support with calm, personalised guidance alongside your existing care.</p>
+            <a class="btn primary" href="/booking#wendy">Book now</a>
+            <a class="btn secondary" style="margin-top: 8px;" href="mailto:hello@therasanctum.com?subject=Consultation%20with%20Wendy">Email Wendy</a>
+          </div>
+          <div class="card">
+            <h3>Book with John</h3>
+            <p>Autoimmune and chronic condition support through a clear, root-cause approach.</p>
+            <a class="btn primary" href="/booking#john">Book now</a>
+            <a class="btn secondary" style="margin-top: 8px;" href="mailto:hello@therasanctum.com?subject=Consultation%20with%20John">Email John</a>
+          </div>
+          <div class="card">
+            <h3>General enquiry</h3>
+            <p>Not sure where to begin? Reach out and we'll help point you in the right direction.</p>
+            <a class="btn primary" href="mailto:hello@therasanctum.com?subject=General%20Enquiry">Contact us</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact form -->
+    <section>
+      <div class="container form-wrap">
+        <div class="section-head">
+          <h2>Send us a message</h2>
+          <p>Fill in the form below and we'll get back to you within one business day.</p>
+        </div>
+
+        <form name="contact" method="POST" data-netlify="true" action="/contact?success=true">
+          <input type="hidden" name="form-name" value="contact" />
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Your name</label>
+              <input type="text" id="name" name="name" required placeholder="Jane Smith" />
+            </div>
+            <div class="form-group">
+              <label for="email">Your email</label>
+              <input type="email" id="email" name="email" required placeholder="jane@example.com" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="subject">I'd like to…</label>
+            <select id="subject" name="subject">
+              <option value="book-wendy">Book a consultation with Wendy</option>
+              <option value="book-john">Book a consultation with John</option>
+              <option value="general">General enquiry</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" required placeholder="Tell us a little about what you're dealing with and how we can help…"></textarea>
+          </div>
+
+          <button type="submit" class="btn primary">Send message</button>
+        </form>
+
+        {Astro.url.searchParams.get('success') === 'true' && (
+          <div class="success-banner">
+            <strong>Message sent!</strong> We'll be in touch within one business day.
+          </div>
+        )}
+      </div>
+    </section>
+
+    <!-- Business info -->
+    <section class="section-taupe">
+      <div class="container">
+        <div class="section-head">
+          <h2>Clinic information</h2>
+        </div>
+        <div class="info-grid">
+          <div class="info-card">
+            <h4>Address</h4>
+            <p>102 Henderson Road<br />#01-01<br />Singapore 159562</p>
+          </div>
+          <div class="info-card">
+            <h4>Hours</h4>
+            <p>Tuesday – Saturday<br />8:30 AM – 4:30 PM</p>
+            <p style="margin-top: 8px;">Sunday, Monday &amp; Public Holidays: Closed</p>
+          </div>
+          <div class="info-card">
+            <h4>Contact</h4>
+            <p>
+              <a href="mailto:hello@therasanctum.com">hello@therasanctum.com</a><br />
+              <a href="https://wa.me/6580748424">WhatsApp: +65 8074 8424</a>
+            </p>
+            <p style="margin-top:8px; font-size: 0.9rem;">No walk-ins — advance booking required.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .form-wrap { max-width: 760px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .success-banner {
+    background: rgba(111,140,128,0.12); border: 1px solid var(--sage);
+    border-radius: 10px; padding: 18px 22px; margin-top: 24px; color: var(--sage-deep);
+  }
+  @media (max-width: 640px) {
+    .form-row { grid-template-columns: 1fr; }
+  }
+</style>

@@ -1,0 +1,102 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+<Layout title="About" description="About Thera Sanctum — a specialist-led integrative clinic in Singapore offering structured, evidence-informed care for complex chronic conditions and cancer support.">
+  <Nav />
+
+  <main>
+    <!-- Page hero -->
+    <section style="padding: 72px 0 56px;">
+      <div class="container">
+        <div class="eyebrow">About Thera Sanctum</div>
+        <h1 style="max-width: 820px; font-size: clamp(2.2rem, 5vw, 4rem);">A specialist-led integrative clinic</h1>
+        <p style="max-width: 680px; font-size: 1.08rem;">
+          Thera Sanctum supports individuals with complex chronic health conditions through calm, considered, integrative care—where your experience is taken seriously and the approach is built around you.
+        </p>
+      </div>
+    </section>
+
+    <!-- Philosophy -->
+    <section class="section-alt">
+      <div class="container two-col">
+        <div class="about-art" aria-hidden="true"></div>
+        <div>
+          <h2>Who we are</h2>
+          <p>Thera Sanctum was founded on the belief that people navigating complex health conditions deserve more than fragmented advice and generic protocols.</p>
+          <p>We bring together specialist clinical knowledge and a genuine commitment to sitting with complexity—not rushing through it.</p>
+          <p>The clinic is structured around two distinct areas of clinical focus, each led by a practitioner with deep expertise in their field.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Two focus areas -->
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <h2>Two areas of clinical focus</h2>
+          <p>Each practitioner brings a distinct but complementary lens to integrative care.</p>
+        </div>
+        <div class="pathway-grid">
+          <article class="card">
+            <div class="icon">❋</div>
+            <h3>Autoimmune &amp; Chronic Conditions</h3>
+            <p>Led by John Tang, this area addresses immune dysregulation, inflammation, fatigue, and long-standing conditions that haven't fully responded to conventional approaches alone.</p>
+            <p>The work is structured around finding root causes and building a clear, manageable path forward.</p>
+            <a class="btn secondary" href="/work-with-john">Work with John</a>
+          </article>
+          <article class="card">
+            <div class="icon">✿</div>
+            <h3>Integrative Oncology Support</h3>
+            <p>Led by Wendy Ting, this area offers calm, personalised support for people navigating cancer—working alongside conventional treatment to support terrain, quality of life, and resilience.</p>
+            <p>Care is grounded in evidence-based integrative oncology and deeply attuned to the individual.</p>
+            <a class="btn secondary" href="/work-with-wendy">Work with Wendy</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Approach principles -->
+    <section class="section-taupe">
+      <div class="container">
+        <div class="section-head">
+          <h2>Our approach</h2>
+          <p>These four principles guide everything we do.</p>
+        </div>
+        <div class="approach-grid" style="max-width: 860px;">
+          <div class="approach-item">
+            <strong>Evidence-informed natural medicine</strong>
+            <p style="margin-top: 8px; margin-bottom: 0;">We draw on clinical research and traditional knowledge, applying what is supported by evidence and appropriate to each person.</p>
+          </div>
+          <div class="approach-item">
+            <strong>Personalised, not protocol-driven</strong>
+            <p style="margin-top: 8px; margin-bottom: 0;">Every consultation begins with listening. We build care around your specific history, circumstances, and goals.</p>
+          </div>
+          <div class="approach-item">
+            <strong>Practised within appropriate scope</strong>
+            <p style="margin-top: 8px; margin-bottom: 0;">We know what integrative medicine does well, and we know where conventional care leads. We work collaboratively, not in competition.</p>
+          </div>
+          <div class="approach-item" style="border-bottom: none;">
+            <strong>Designed to support, not overwhelm</strong>
+            <p style="margin-top: 8px; margin-bottom: 0;">We reduce complexity rather than add to it. You leave each consultation with clarity, not a longer to-do list.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-band">
+      <div class="container">
+        <h2>Ready to find the right support?</h2>
+        <p>Explore our practitioners or get in touch—we'll help guide you to the most appropriate next step.</p>
+        <div class="cta-row" style="justify-content:center;">
+          <a class="btn primary" href="/booking">Book a consultation</a>
+          <a class="btn secondary" href="/contact">Get in touch</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
