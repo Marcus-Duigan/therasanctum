@@ -1,4 +1,6 @@
 ---
+import '../styles/global.css';
+
 interface Props {
   title: string;
   description?: string;
@@ -13,7 +15,6 @@ const { title, description = "A specialist-led integrative clinic in Singapore o
   <title>{title} | Thera Sanctum</title>
   <meta name="description" content={description} />
   <link rel="icon" type="image/png" href="/branding/logo-icon.png" />
-  <link rel="stylesheet" href="/src/styles/global.css" />
 </head>
 <body>
   <slot />
