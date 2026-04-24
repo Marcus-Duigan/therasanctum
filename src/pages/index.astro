@@ -20,12 +20,7 @@ import Footer from '../components/Footer.astro';
           </div>
         </div>
         <div class="hero-art" aria-hidden="true">
-          <div class="leaf one"></div>
-          <div class="leaf two"></div>
-          <div class="leaf three"></div>
-          <div class="leaf four"></div>
-          <div class="leaf five"></div>
-          <div class="vase"></div>
+          <img src="/images/herbs.jpg" alt="" />
         </div>
       </div>
     </section>
@@ -33,7 +28,7 @@ import Footer from '../components/Footer.astro';
     <!-- Pathways -->
     <section class="section-alt" id="pathways">
       <div class="container">
-        <div class="section-head">
+        <div class="section-head" style="text-align:center; max-width:100%;">
           <h2>Two areas of clinical focus</h2>
         </div>
         <div class="pathway-grid">
@@ -46,11 +41,16 @@ import Footer from '../components/Footer.astro';
             </div>
           </article>
           <article class="card">
-            <div class="icon">✿</div>
-            <h3>Integrative Oncology Support</h3>
-            <p>Work with Wendy Ting for calm, measured support alongside cancer care, with a focus on clarity, terrain support, and quality of life.</p>
-            <div class="cta-row">
-              <a class="btn primary" href="/work-with-wendy">Work with Wendy</a>
+            <div class="card-body">
+              <div>
+                <div class="icon">✿</div>
+                <h3>Oncology</h3>
+                <p>Work with Wendy Ting for calm, measured support alongside cancer care, with a focus on clarity, terrain support, and quality of life.</p>
+                <div class="cta-row">
+                  <a class="btn primary" href="/work-with-wendy">Work with Wendy</a>
+                </div>
+              </div>
+              <img src="/images/wendy.jpeg" alt="Wendy Ting" class="card-portrait" />
             </div>
           </article>
         </div>
@@ -92,10 +92,12 @@ import Footer from '../components/Footer.astro';
         <div>
           <h2>Our approach</h2>
           <div class="approach-grid">
-            <div class="approach-item">Evidence-informed natural medicine</div>
-            <div class="approach-item">Personalised, not protocol-driven</div>
-            <div class="approach-item">Practised within appropriate scope</div>
-            <div class="approach-item">Designed to support, not overwhelm</div>
+            <div class="approach-item">Evidence-informed, clinically grounded</div>
+            <div class="approach-item">Personalised — no templates, no guesswork</div>
+            <div class="approach-item">Informed by functional testing, not assuming</div>
+            <div class="approach-item">Focused on underlying drivers, not just symptoms</div>
+            <div class="approach-item">Thoughtful use of herbal and natural therapies, designed for tolerance</div>
+            <div class="approach-item">Safe, considered and within practice scope</div>
           </div>
         </div>
       </div>
@@ -142,39 +144,12 @@ import Footer from '../components/Footer.astro';
 
   /* Hero art */
   .hero-art {
-    background: linear-gradient(160deg, #efeae2 0%, #f8f5f1 100%);
     min-height: 540px; border-radius: 28px; box-shadow: var(--shadow);
-    position: relative; overflow: hidden; display: flex; align-items: flex-end; justify-content: flex-end; padding: 22px;
+    overflow: hidden;
   }
-  .hero-art::before {
-    content: ""; position: absolute; inset: 0;
-    background:
-      radial-gradient(circle at 70% 18%, rgba(143,167,154,0.18), transparent 26%),
-      radial-gradient(circle at 84% 30%, rgba(216,209,199,0.48), transparent 32%);
+  .hero-art img {
+    width: 100%; height: 100%; min-height: 540px; object-fit: cover; object-position: center; display: block;
   }
-  .vase {
-    position: absolute; right: 7%; bottom: 10%; width: 42%; height: 52%;
-    background: linear-gradient(180deg, #f8f3ec 0%, #d8cfc5 100%);
-    border-radius: 45% 45% 40% 40% / 32% 32% 58% 58%;
-    box-shadow: inset -8px -12px 18px rgba(0,0,0,0.04), 0 18px 40px rgba(0,0,0,0.08);
-  }
-  .vase::before {
-    content: ""; position: absolute; left: 37%; top: -13%; width: 26%; height: 18%;
-    background: linear-gradient(180deg, #f0e8de, #d8cfc5); border-radius: 20px 20px 10px 10px;
-  }
-  .leaf {
-    position: absolute; width: 150px; height: 5px; background: linear-gradient(90deg, #8ea391, #6d877a);
-    border-radius: 99px; transform-origin: left center; opacity: 0.9;
-  }
-  .leaf::after {
-    content: ""; position: absolute; right: -6px; top: -5px; width: 18px; height: 14px;
-    background: linear-gradient(135deg, #90a896, #6d877a); border-radius: 100% 0 100% 0; transform: rotate(18deg);
-  }
-  .leaf.one  { right: 25%; top: 28%; transform: rotate(-12deg); }
-  .leaf.two  { right: 18%; top: 22%; width: 130px; transform: rotate(20deg); }
-  .leaf.three{ right: 33%; top: 18%; width: 120px; transform: rotate(-40deg); }
-  .leaf.four { right: 15%; top: 33%; width: 118px; transform: rotate(45deg); }
-  .leaf.five { right: 30%; top: 36%; width: 105px; transform: rotate(-60deg); }
 
   /* Olive panel */
   .olive-panel {
@@ -197,23 +172,19 @@ import Footer from '../components/Footer.astro';
   .olive-leaf4 { right: 29%; top: 60%; transform: rotate(28deg); }
   .olive-leaf5 { right: 16%; top: 57%; transform: rotate(-8deg); }
 
+  /* Oncology card with portrait */
+  .card-body { display: flex; gap: 20px; align-items: flex-start; height: 100%; }
+  .card-body > div:first-child { flex: 1; display: flex; flex-direction: column; gap: 14px; }
+  .card-portrait {
+    width: 110px; height: 140px; object-fit: cover; object-position: top center;
+    border-radius: 12px; flex-shrink: 0; box-shadow: 0 4px 16px rgba(43,43,43,0.1);
+  }
+
   @media (max-width: 980px) {
-    .hero-grid { grid-template-columns: 1fr; }
     .hero-art { min-height: 380px; }
+    .card-portrait { width: 88px; height: 112px; }
   }
   @media (max-width: 640px) {
     .hero { padding-top: 44px; }
   }
 </style>
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>

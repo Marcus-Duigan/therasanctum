@@ -14,6 +14,7 @@ const currentPath = Astro.url.pathname;
   <div class="container nav">
     <a href="/" class="brand-logo" aria-label="Thera Sanctum home">
       <img src="/branding/logo-header.png" alt="Thera Sanctum" height="48" />
+      <span class="brand-tagline">Clinic of Natural Medicine</span>
     </a>
     <nav aria-label="Main navigation">
       {navLinks.map(link => (
@@ -35,8 +36,12 @@ const currentPath = Astro.url.pathname;
   .nav {
     display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 14px 0;
   }
-  .brand-logo { display: flex; align-items: center; }
+  .brand-logo { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; }
   .brand-logo img { height: 48px; width: auto; }
+  .brand-tagline {
+    font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--sage-deep); font-weight: 500; line-height: 1;
+  }
   nav { display: flex; flex-wrap: wrap; gap: 22px; font-size: 0.97rem; color: var(--muted); }
   nav a:hover, nav a.active { color: var(--text); }
   nav a.active { font-weight: 500; }
