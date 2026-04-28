@@ -104,13 +104,16 @@ section { padding: 78px 0; }
 ul.clean { margin: 0; padding-left: 22px; color: var(--muted); }
 ul.clean li { margin-bottom: 10px; }
 
+/* ── Garden image ── */
+.garden-image img { width: 100%; height: auto; border-radius: 20px; object-fit: cover; }
+
 /* ── Practitioner pages ── */
 .practitioner { padding-top: 92px; }
 .practitioner-grid {
   display: grid; grid-template-columns: 1.08fr 0.92fr; gap: 44px; align-items: center; margin-bottom: 36px;
 }
 .portrait {
-  width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 28px; box-shadow: var(--shadow);
+  width: 60%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 28px; box-shadow: var(--shadow);
   border: 1px solid var(--line); background: var(--bg-alt);
 }
 .qualifications {
