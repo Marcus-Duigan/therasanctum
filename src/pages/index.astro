@@ -114,6 +114,68 @@ import Footer from '../components/Footer.astro';
       </div>
     </section>
 
+    <!-- Testimonials carousel -->
+    <section class="section-alt" id="testimonials">
+      <div class="container">
+        <div class="section-head" style="text-align:center; max-width:100%;">
+          <div class="eyebrow">What patients say</div>
+          <h2>Stories from people we've supported</h2>
+        </div>
+        <div class="carousel-wrap">
+          <div class="carousel-inner" id="testimonialInner">
+            <div class="carousel-slide">
+              <span class="quote-mark">&ldquo;</span>
+              <blockquote>After years of feeling dismissed and overwhelmed, John gave me something I hadn't had in a long time — a clear plan. He took the time to understand my full history and built a protocol that actually made sense. For the first time, I feel like I'm working with my body, not against it.</blockquote>
+              <div class="carousel-author">
+                <div class="avatar-initials" aria-hidden="true">S.L.</div>
+                <div>
+                  <p class="testimonial-name">S. Lim</p>
+                  <p class="testimonial-label">Autoimmune patient</p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-slide">
+              <span class="quote-mark">&ldquo;</span>
+              <blockquote>Wendy was a calm, steady presence during one of the most frightening periods of my life. She helped me understand which supplements were safe alongside my treatment and what to prioritise. I never felt rushed or sold to — just genuinely supported.</blockquote>
+              <div class="carousel-author">
+                <div class="avatar-initials" aria-hidden="true">R.T.</div>
+                <div>
+                  <p class="testimonial-name">R. Tan</p>
+                  <p class="testimonial-label">Integrative oncology support</p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-slide">
+              <span class="quote-mark">&ldquo;</span>
+              <blockquote>I came to Thera Sanctum having seen multiple specialists with no answers. John ran functional tests that finally revealed what was driving my fatigue. Within three months I had more energy than I'd had in years.</blockquote>
+              <div class="carousel-author">
+                <div class="avatar-initials" aria-hidden="true">M.C.</div>
+                <div>
+                  <p class="testimonial-name">M. Chong</p>
+                  <p class="testimonial-label">Chronic fatigue patient</p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-slide">
+              <span class="quote-mark">&ldquo;</span>
+              <blockquote>Wendy supported my mother through her cancer treatment with such grace and knowledge. She liaised carefully with the oncology team and kept us informed every step of the way. The whole family felt held throughout the process.</blockquote>
+              <div class="carousel-author">
+                <div class="avatar-initials" aria-hidden="true">A.N.</div>
+                <div>
+                  <p class="testimonial-name">A. Ng</p>
+                  <p class="testimonial-label">Family member of patient</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-dots" id="carouselDots"></div>
+        <p style="text-align:center; margin-top:28px;">
+          <a class="btn secondary" href="/testimonials">Read all testimonials</a>
+        </p>
+      </div>
+    </section>
+
     <!-- CTA Band -->
     <section class="cta-band">
       <div class="container">
@@ -184,3 +246,38 @@ import Footer from '../components/Footer.astro';
     .hero { padding-top: 44px; }
   }
 </style>
+
+<script>
+  const inner = document.getElementById('testimonialInner') as HTMLElement | null;
+  const dotsContainer = document.getElementById('carouselDots') as HTMLElement | null;
+  if (inner && dotsContainer) {
+    const slides = inner.querySelectorAll('.carousel-slide');
+    let current = 0;
+    let timer: ReturnType<typeof setInterval>;
+
+    slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', `Go to testimonial ${i + 1}`);
+      dot.addEventListener('click', () => { goTo(i); resetTimer(); });
+      dotsContainer.appendChild(dot);
+    });
+
+    function goTo(index: number) {
+      current = index;
+      inner!.style.transform = `translateX(-${100 * current}%)`;
+      dotsContainer!.querySelectorAll('.carousel-dot').forEach((d, i) =>
+        d.classList.toggle('active', i === current)
+      );
+    }
+
+    function advance() { goTo((current + 1) % slides.length); }
+
+    function resetTimer() { clearInterval(timer); timer = setInterval(advance, 4500); }
+
+    inner.parentElement?.addEventListener('mouseenter', () => clearInterval(timer));
+    inner.parentElement?.addEventListener('mouseleave', resetTimer);
+
+    resetTimer();
+  }
+</script>

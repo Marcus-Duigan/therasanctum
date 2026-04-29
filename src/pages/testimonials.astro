@@ -1,0 +1,88 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+const testimonials = [
+  {
+    initials: "S.L.",
+    name: "S. Lim",
+    label: "Autoimmune patient",
+    quote: "After years of feeling dismissed and overwhelmed, John gave me something I hadn't had in a long time — a clear plan. He took the time to understand my full history, asked questions no one had asked before, and built a protocol that actually made sense. For the first time, I feel like I'm working with my body, not against it."
+  },
+  {
+    initials: "R.T.",
+    name: "R. Tan",
+    label: "Integrative oncology support",
+    quote: "Wendy was a calm, steady presence during one of the most frightening periods of my life. She helped me understand which supplements were safe alongside my treatment, what to prioritise, and what to let go of. I never felt rushed or sold to — just genuinely supported. I can't recommend her enough."
+  },
+  {
+    initials: "M.C.",
+    name: "M. Chong",
+    label: "Chronic fatigue patient",
+    quote: "I came to Thera Sanctum having seen multiple specialists with no answers. John ran functional tests that finally revealed what was driving my fatigue. Within three months I had more energy than I'd had in years. The approach is thorough, evidence-based, and deeply personalised."
+  },
+  {
+    initials: "A.N.",
+    name: "A. Ng",
+    label: "Family member of patient",
+    quote: "Wendy supported my mother through her cancer treatment with such grace and knowledge. She liaised carefully with the oncology team, ensured my mother's supplements were safe, and kept us informed every step of the way. The whole family felt held throughout the process."
+  },
+];
+---
+<Layout title="Testimonials" description="Read what patients say about their experience at Thera Sanctum — integrative care that is calm, considered, and deeply personal.">
+  <Nav />
+
+  <main>
+    <!-- Page header -->
+    <section class="page-hero">
+      <div class="container">
+        <div class="eyebrow">Patient stories</div>
+        <h1>What people say</h1>
+        <p class="lead">
+          Our work is most meaningful when patients feel genuinely supported —
+          not just treated. Here are some of the experiences shared with us.
+        </p>
+      </div>
+    </section>
+
+    <!-- Testimonial strips -->
+    <section class="section-alt">
+      <div class="container">
+        {testimonials.map(t => (
+          <div class="testimonial-strip">
+            <div class="testimonial-author">
+              <div class="avatar-initials" aria-hidden="true">{t.initials}</div>
+              <p class="testimonial-name">{t.name}</p>
+              <p class="testimonial-label">{t.label}</p>
+            </div>
+            <div class="testimonial-body">
+              <span class="quote-mark">&ldquo;</span>
+              <blockquote>{t.quote}</blockquote>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- CTA band -->
+    <section class="cta-band">
+      <div class="container">
+        <h2>Ready to find your path forward?</h2>
+        <p>Book a consultation, or reach out if you're unsure where to start.</p>
+        <div class="cta-row" style="justify-content:center;">
+          <a class="btn primary" href="/booking">Book a consultation</a>
+          <a class="btn secondary" href="/contact">General enquiry</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .page-hero { padding: 72px 0 52px; }
+  .page-hero h1 { max-width: 640px; }
+  .lead { max-width: 620px; font-size: 1.08rem; color: var(--muted); }
+</style>
